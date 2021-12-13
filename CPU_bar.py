@@ -8,6 +8,7 @@ class Application(tk.Tk):
         self.attributes('-topmost', True)  # window on top of other windows
         self.overrideredirect(True)  # ban the frame
         self.resizable(False, False)  # ban alter the size of the window
+        self.title('CPU bar')
 
 
 root = Application()

@@ -33,6 +33,20 @@ class Application(tk.Tk):
         ttk.Button(self.bar2, text='move').pack(side=tk.LEFT)
         ttk.Button(self.bar2, text='>>>').pack(side=tk.LEFT)
 
+        self.bar2 = ttk.LabelFrame(self, text='Power')
+        self.bar2.pack(fill=tk.BOTH)
+
+        self.bind_class('Tk', '<Enter>', self.enter_mouse)
+        self.bind_class('Tk', '<Leave>', self.leave_mouse)
+
+    def enter_mouse(self, event):
+        if self.combo_win.current() == 0 or 1:
+            self.geometry('')
+
+    def leave_mouse(self, event):
+        if self.combo_win.current() == 0:
+            self.geometry(f'{self.winfo_width()}x1')
+
     def app_exit(self):
         self.destroy()
         sys.exit()

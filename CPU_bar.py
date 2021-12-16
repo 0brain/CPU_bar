@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import sys
+from process import CpuBar
 
 
 class Application(tk.Tk):
@@ -14,6 +15,7 @@ class Application(tk.Tk):
         self.resizable(False, False)  # ban alter the size of the window
         self.title('CPU bar')
 
+        self.cpu = CpuBar()
         self.set_ui()
 
     def set_ui(self):
@@ -45,7 +47,7 @@ class Application(tk.Tk):
 
     def leave_mouse(self, event):
         if self.combo_win.current() == 0:
-            self.geometry(f'{self.winfo_width()}x1')
+            self.geometry(f"{self.winfo_width()}x1")
 
     def app_exit(self):
         self.destroy()

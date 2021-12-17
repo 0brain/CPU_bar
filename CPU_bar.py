@@ -2,9 +2,10 @@ import tkinter as tk
 from tkinter import ttk
 import sys
 from process import CpuBar
+from widget_update import Configure_widgets
 
 
-class Application(tk.Tk):
+class Application(tk.Tk, Configure_widgets):
     def __init__(self):
         tk.Tk.__init__(self)
         #self.attributes('-alpha', 1)  # 100 percent transparency
@@ -18,6 +19,7 @@ class Application(tk.Tk):
         self.cpu = CpuBar()
         self.set_ui()
         self.make_bar_cpu_usage()
+        self.configure_cpu_bar()
 
     def set_ui(self):
         exit_but = ttk.Button(self, text='Exit', command=self.app_exit)

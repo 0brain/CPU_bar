@@ -8,3 +8,6 @@ class CpuBar:
 
     def cpu_percent_return(self):
         return pt.cpu_percent(percpu=True)
+
+    def ram_usage(self):
+        return pt.virtual_memory()

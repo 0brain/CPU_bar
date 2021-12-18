@@ -6,3 +6,5 @@ class Configure_widgets:
         for i in range(self.cpu.cpu_count_logical):
             self.list_label[i].configure(text=f'core {i+1} usage: {r[i]}%')
             self.list_pbar[i].configure(value=r[i])
+
+        self.after(1000, self.configure_cpu_bar)

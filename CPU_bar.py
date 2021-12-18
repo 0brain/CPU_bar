@@ -58,6 +58,11 @@ class Application(tk.Tk, Configure_widgets):
             self.list_label[i].pack(fill=tk.X)
             self.list_pbar[i].pack(fill=tk.X)
 
+        self.ram_lab = ttk.Label(self.bar, text='', anchor=tk.CENTER)
+        self.ram_lab.pack(fill=tk.X)
+        self.ram_bar = ttk.Progressbar(self.bar, length=100)
+        self.ram_bar.pack(fill=tk.X)
+
     def enter_mouse(self, event):
         if self.combo_win.current() == 0 or 1:
             self.geometry('')

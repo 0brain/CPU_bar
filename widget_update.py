@@ -13,3 +13,10 @@ class Configure_widgets:
         self.ram_bar.configure(value=r2[2])
 
         self.after(1000, self.configure_cpu_bar)
+
+    def configure_win(self):
+        if self.wm_overrideredirect():
+            self.overrideredirect(False)
+        else:
+            self.overrideredirect(True)
+        self.update()

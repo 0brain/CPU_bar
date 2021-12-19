@@ -35,7 +35,7 @@ class Application(tk.Tk, Configure_widgets):
         self.combo_win.current(1)
         self.combo_win.pack(side=tk.LEFT)
 
-        ttk.Button(self.bar2, text='move').pack(side=tk.LEFT)
+        ttk.Button(self.bar2, text='move', command=self.configure_win).pack(side=tk.LEFT)
         ttk.Button(self.bar2, text='>>>').pack(side=tk.LEFT)
 
         self.bar = ttk.LabelFrame(self, text='Power')

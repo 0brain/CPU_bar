@@ -20,3 +20,7 @@ class Configure_widgets:
         else:
             self.overrideredirect(True)
         self.update()
+
+    def clear_win(self):
+        for i in self.winfo_children():
+            i.destroy()

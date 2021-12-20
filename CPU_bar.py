@@ -79,6 +79,7 @@ class Application(tk.Tk, Configure_widgets):
             self.unbind_class('Tk', '<Leave>')
             self.combo_win.unbind('<<ComboboxSelected>>')
             self.after_cancel(self.wheel)
+            self.clear_win()
 
     def app_exit(self):
         self.destroy()

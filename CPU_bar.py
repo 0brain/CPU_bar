@@ -43,6 +43,7 @@ class Application(tk.Tk, Configure_widgets):
 
         self.bind_class('Tk', '<Enter>', self.enter_mouse)
         self.bind_class('Tk', '<Leave>', self.leave_mouse)
+        self.combo_win.bind('<<ComboboxSelected>>', self.choise_combo)
 
     def make_bar_cpu_usage(self):
         ttk.Label(self.bar, text=f'physical cores: {self.cpu.cpu_count}, logical cores: {self.cpu.cpu_count_logical}',
@@ -70,6 +71,14 @@ class Application(tk.Tk, Configure_widgets):
     def leave_mouse(self, event):
         if self.combo_win.current() == 0:
             self.geometry(f"{self.winfo_width()}x1")
+
+    def choise_combo(self, event):
+        if self.combo_win.current() == 2:
+            self.enter_mouse('')
+            self.unbind_class('Tk', '<Enter>')
+            self.unbind_class('Tk', '<Leave>')
+            self.combo_win.unbind('<<ComboboxSelected>>')
+            self.after_cancel(self.wheel)
 
     def app_exit(self):
         self.destroy()

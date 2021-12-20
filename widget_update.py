@@ -12,7 +12,7 @@ class Configure_widgets:
                     \n available: {round(r2[1] / 1048576)} Mb')
         self.ram_bar.configure(value=r2[2])
 
-        self.after(1000, self.configure_cpu_bar)
+        self.wheel = self.after(1000, self.configure_cpu_bar)
 
     def configure_win(self):
         if self.wm_overrideredirect():

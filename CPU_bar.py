@@ -64,6 +64,19 @@ class Application(tk.Tk, Configure_widgets):
         self.ram_bar = ttk.Progressbar(self.bar, length=100)
         self.ram_bar.pack(fill=tk.X)
 
+    def make_minimal_win(self):
+        self.bar_one = ttk.Progressbar(self, length=100)
+        self.bar_one.pack(side=tk.LEFT)
+
+        self.ram_bar = ttk.Progressbar(self, length=100)
+        self.ram_bar.pack(side=tk.LEFT)
+
+        ttk.Button(self, text='full', width=5).pack(side=tk.RIGHT)
+
+        ttk.Button(self, text='move', width=5).pack(side=tk.RIGHT)
+
+        self.update()
+
     def enter_mouse(self, event):
         if self.combo_win.current() == 0 or 1:
             self.geometry('')
@@ -80,6 +93,8 @@ class Application(tk.Tk, Configure_widgets):
             self.combo_win.unbind('<<ComboboxSelected>>')
             self.after_cancel(self.wheel)
             self.clear_win()
+            self.update()
+            self.make_minimal_win()
 
     def app_exit(self):
         self.destroy()

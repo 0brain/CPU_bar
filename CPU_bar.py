@@ -76,7 +76,7 @@ class Application(tk.Tk, Configure_widgets):
         self.ram_bar = ttk.Progressbar(self, length=100)
         self.ram_bar.pack(side=tk.LEFT)
 
-        ttk.Button(self, text='full', width=5).pack(side=tk.RIGHT)
+        ttk.Button(self, text='full', command=self.make_full_win, width=5).pack(side=tk.RIGHT)
 
         ttk.Button(self, text='move', command=self.configure_win, width=5).pack(side=tk.RIGHT)
 
@@ -106,6 +106,7 @@ class Application(tk.Tk, Configure_widgets):
         self.after_cancel(self.wheel)
         self.clear_win()
         self.update()
+        self.run_set_ui()
 
     def app_exit(self):
         self.destroy()

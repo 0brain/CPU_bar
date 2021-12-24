@@ -73,7 +73,7 @@ class Application(tk.Tk, Configure_widgets):
 
         ttk.Button(self, text='full', width=5).pack(side=tk.RIGHT)
 
-        ttk.Button(self, text='move', width=5).pack(side=tk.RIGHT)
+        ttk.Button(self, text='move', command=self.configure_win, width=5).pack(side=tk.RIGHT)
 
         self.update()
         self.configure_minimal_win()
@@ -96,6 +96,9 @@ class Application(tk.Tk, Configure_widgets):
             self.clear_win()
             self.update()
             self.make_minimal_win()
+
+    def make_full_win(self):
+        self.after_cancel(self.wheel)
 
     def app_exit(self):
         self.destroy()

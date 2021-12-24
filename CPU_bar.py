@@ -17,9 +17,14 @@ class Application(tk.Tk, Configure_widgets):
         self.title('CPU bar')
 
         self.cpu = CpuBar()
+        self.run_set_ui()
+
+    def run_set_ui(self):
+        """Start building widgets."""
         self.set_ui()
         self.make_bar_cpu_usage()
         self.configure_cpu_bar()
+
 
     def set_ui(self):
         exit_but = ttk.Button(self, text='Exit', command=self.app_exit)

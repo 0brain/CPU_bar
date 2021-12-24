@@ -76,6 +76,7 @@ class Application(tk.Tk, Configure_widgets):
         ttk.Button(self, text='move', width=5).pack(side=tk.RIGHT)
 
         self.update()
+        self.configure_minimal_win()
 
     def enter_mouse(self, event):
         if self.combo_win.current() == 0 or 1:

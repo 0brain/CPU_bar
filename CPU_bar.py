@@ -99,6 +99,8 @@ class Application(tk.Tk, Configure_widgets):
 
     def make_full_win(self):
         self.after_cancel(self.wheel)
+        self.clear_win()
+        self.update()
 
     def app_exit(self):
         self.destroy()

@@ -107,6 +107,8 @@ class Application(tk.Tk, Configure_widgets):
         self.clear_win()
         self.update()
         self.run_set_ui()
+        self.enter_mouse('')
+        self.combo_win.current(1)
 
     def app_exit(self):
         self.destroy()
